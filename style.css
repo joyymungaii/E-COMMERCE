@@ -1,0 +1,111 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+header {
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 70rem;
+  border-bottom: 2px solid #000;
+}
+
+header .logo a {
+  font-size: 30px;
+  text-decoration: none;
+  color: #000;
+  font-family: "Italianno", cursive;
+  font-weight: 800;
+  font-style: normal;
+  text-transform: uppercase;
+  padding-left: 20px;
+  cursor: pointer;
+}
+
+header .icon {
+  display: flex;
+  gap: 20px;
+}
+header .icon i {
+  color: #000;
+  font: 30px;
+}
+
+.one {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.one .banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70rem;
+  height: 22rem;
+  border-radius: 5px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.541), rgba(0, 0, 0, 0.616)),
+    url(/Image/1.jpg);
+  gap: 5px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.banner p {
+  text-align: center;
+  color: #fff;
+  font-size: 50px;
+  font-family: "Italiana", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.banner button {
+  width: 130px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  color: #000;
+  font-size: 16px;
+  font-family: "Italiana", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.banner img {
+  width: 100px;
+  height: 50px;
+}
+
+.mini {
+  display: flex;
+  margin-top: 30px;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.mini p {
+  font-size: 30px;
+  font-family: "Italiana", sans-serif;
+  font-weight: bold;
+}
+
+.vertical-line{
+    border-left: 5px solid #000;
+  height: 60px;
+  margin-left: 30px;
+}
+
+.mini span{
+    font-size: 16px;
+  font-family: "Italiana", sans-serif;
+  padding-left: 20px;
+}
