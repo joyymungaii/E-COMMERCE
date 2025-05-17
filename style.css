@@ -129,6 +129,11 @@ header .icon i {
   font-style: normal;
 }
 
+.banner button a{
+  text-decoration: none;
+  color: #000;
+}
+
 :root {
   --img1: url("/Image/1.jpg");
   --img2: url("/Image/2.jpg");
@@ -404,6 +409,11 @@ header .icon i {
   font-family: "Italiana", sans-serif;
   font-weight: bolder;
   margin: 20px 0 0 300px;
+}
+
+.five .promo button a{
+  text-decoration: none;
+  color: #000;
 }
 
 footer {
