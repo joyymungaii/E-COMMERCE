@@ -30,7 +30,12 @@
     <header>
       <p class="logo"><a href="index.html">Cloudy</a></p>
       <div class="icon">
-        <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <div class="search-container">
+          <a href="#" class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+          <div class="search-input-container">
+            <input type="text" id="search-input" placeholder="Search products..." />
+          </div>
+        </div>
         <a href="#"><i class="fa-regular fa-user"></i></a>
         <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
       </div>
@@ -177,7 +182,7 @@
         <img src="/Image/1.jpg" alt="" />
         <div>
           <p>
-            Grab exciting deals and special promos today!!! Don’t miss out!!
+            Grab exciting deals and special promos today!!! Don't miss out!!
           </p>
           <button>Grab Now</button>
         </div>
@@ -231,6 +236,47 @@
     index = (index + 1) % images.length;
     showSlide(index);
   }, 4000);
+
+  // Search functionality
+  const searchIcon = document.querySelector('.search-icon');
+  const searchInputContainer = document.querySelector('.search-input-container');
+  const searchInput = document.getElementById('search-input');
+  const searchClose = document.getElementById('search-close');
+
+  searchIcon.addEventListener('click', function(e) {
+    e.preventDefault();
+    searchInputContainer.classList.toggle('active');
+    if (searchInputContainer.classList.contains('active')) {
+      setTimeout(() => {
+        searchInput.focus();
+      }, 300);
+    }
+  });
+
+  searchInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      performSearch();
+    }
+  });
+
+  // Close search when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!searchIcon.contains(e.target) && 
+        !searchInputContainer.contains(e.target)) {
+      searchInputContainer.classList.remove('active');
+    }
+  });
+
+  function performSearch() {
+    const query = searchInput.value.trim();
+    if (query) {
+      // Here you would implement your search functionality
+      alert(`Searching for: ${query}`);
+      // You can redirect to a search results page
+      // window.location.href = `search-results.html?q=${encodeURIComponent(query)}`;
+      searchInput.value = '';
+    }
+  }
 </script>
 
   </body>
