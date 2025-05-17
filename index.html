@@ -43,8 +43,13 @@
           now
         </p>
         <button>Shop Now >></button>
-        <img src="dddot.png" alt="" />
+        <div class="dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
       </div>
+
       <div class="mini">
         <p>
           We provide the best <br />
@@ -101,83 +106,132 @@
       </div>
     </section>
 
-<section class="four">
-  <h1>Featured Products</h1>
+    <section class="four">
+      <h1>Featured Products</h1>
 
-  <div class="scroll-container">
-    <div class="featured">
-      <div class="featured-product">
-        <img src="/Image/5.webp" alt="" />
-        <button>SALE</button>
-        <div class="product-details">
-          <div>
-            <h3>Office Suit</h3>
-            <p>KSH 5000</p>
+      <div class="scroll-container">
+        <div class="featured">
+          <div class="featured-product">
+            <img src="/Image/5.webp" alt="" />
+            <button>SALE</button>
+            <div class="product-details">
+              <div>
+                <h3>Office Suit</h3>
+                <p>KSH 5000</p>
+              </div>
+              <div><i class="fa-solid fa-cart-shopping"></i></div>
+            </div>
           </div>
-          <div><i class="fa-solid fa-cart-shopping"></i></div>
+
+          <div class="featured-product">
+            <img src="/Image/1.jpg" alt="" />
+            <div class="product-details">
+              <div>
+                <h3>Pink Suit</h3>
+                <p>KSH 7000</p>
+              </div>
+              <div><i class="fa-solid fa-cart-shopping"></i></div>
+            </div>
+          </div>
+
+          <div class="featured-product">
+            <img src="/Image/4.jpg" alt="" />
+            <div class="product-details">
+              <div>
+                <h3>Office Suit</h3>
+                <p>KSH 5000</p>
+              </div>
+              <div><i class="fa-solid fa-cart-shopping"></i></div>
+            </div>
+          </div>
+
+          <!-- Add more featured-product items as needed -->
+          <div class="featured-product">
+            <img src="/Image/6.webp" alt="" />
+            <div class="product-details">
+              <div>
+                <h3>Office Suit</h3>
+                <p>KSH 5000</p>
+              </div>
+              <div><i class="fa-solid fa-cart-shopping"></i></div>
+            </div>
+          </div>
+
+          <div class="featured-product">
+            <img src="/Image/2.jpg" alt="" />
+            <button>SALE</button>
+            <div class="product-details">
+              <div>
+                <h3>Office Suit</h3>
+                <p>KSH 5000</p>
+              </div>
+              <div><i class="fa-solid fa-cart-shopping"></i></div>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="featured-product">
+    <section class="five">
+      <div class="promo">
         <img src="/Image/1.jpg" alt="" />
-        <div class="product-details">
-          <div>
-            <h3>Pink Suit</h3>
-            <p>KSH 7000</p>
-          </div>
-          <div><i class="fa-solid fa-cart-shopping"></i></div>
+        <div>
+          <p>
+            Grab exciting deals and special promos today!!! Don’t miss out!!
+          </p>
+          <button>Grab Now</button>
         </div>
       </div>
+    </section>
 
-      <div class="featured-product">
-        <img src="/Image/4.jpg" alt="" />
-        <div class="product-details">
-          <div>
-            <h3>Office Suit</h3>
-            <p>KSH 5000</p>
-          </div>
-          <div><i class="fa-solid fa-cart-shopping"></i></div>
-        </div>
+    <footer>
+      <div class="footer-details">
+        <h1><a href="index.html">CLOUDY</a></h1>
+        <p>Find your style from our <br />amazing collection</p>
       </div>
-
-      <!-- Add more featured-product items as needed -->
-             <div class="featured-product">
-        <img src="/Image/6.webp" alt="" />
-        <div class="product-details">
-          <div>
-            <h3>Office Suit</h3>
-            <p>KSH 5000</p>
-          </div>
-          <div><i class="fa-solid fa-cart-shopping"></i></div>
-        </div>
+      <div class="footer-pages1">
+        <a href="#">About Us</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Discover</a>
       </div>
-
-      <div class="featured-product">
-        <img src="/Image/2.jpg" alt="" />
-        <button>SALE</button>
-        <div class="product-details">
-          <div>
-            <h3>Office Suit</h3>
-            <p>KSH 5000</p>
-          </div>
-          <div><i class="fa-solid fa-cart-shopping"></i></div>
-        </div>
+      <div class="footer-pages2">
+        <a href="">FAQ</a>
+        <a href="">Terms of Service</a>
+        <a href="">Policy</a>
       </div>
+      <div class="footer-vertical-line"></div>
+      <div class="handles">
+        <a href="">Instagram</a>
+        <a href="">Twitter</a>
+        <a href="">Pinterest</a>
+      </div>
+    </footer>
 
-    </div>
-  </div>
-</section>
+<script>
+  const banner = document.querySelector(".banner");
+  const dots = document.querySelectorAll(".dot");
+  const images = [
+    "/Image/1.jpg",
+    "/Image/4.jpg",
+    "/Image/5.webp"
+  ];
+  let index = 0;
 
-<section class="five">
-  <div class="promo">
-    <img src="/Image/1.jpg" alt="">
-    <div>
-      <p>Grab exciting deals and special promos today!!! Don’t miss out!!</p>
-      <button>Grab Now</button>
-    </div>
-  </div>
-</section>
+  function showSlide(i) {
+    banner.style.backgroundImage = `
+      linear-gradient(rgba(0, 0, 0, 0.541), rgba(0, 0, 0, 0.616)), 
+      url(${images[i]})
+    `;
 
+    dots.forEach(dot => dot.classList.remove("active"));
+    dots[i].classList.add("active");
+  }
+
+  setInterval(() => {
+    index = (index + 1) % images.length;
+    showSlide(index);
+  }, 4000);
+</script>
 
   </body>
 </html>
