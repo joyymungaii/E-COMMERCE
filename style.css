@@ -6,12 +6,13 @@
 
 header {
   width: 100%;
-  height: 4rem;
+  height: 5rem;
   display: flex;
   align-items: center;
   gap: 70rem;
-  border-bottom: 2px solid #000;
-  position: relative;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  margin-bottom: 30px;
 }
 
 header .logo a {
@@ -82,6 +83,21 @@ header .icon i {
   outline: none;
 }
 
+.cart-count {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  background-color: #e74c3c;
+  color: white;
+  font-size: 11px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Rest of your existing CSS */
 .one {
   width: 100%;
@@ -129,7 +145,7 @@ header .icon i {
   font-style: normal;
 }
 
-.banner button a{
+.banner button a {
   text-decoration: none;
   color: #000;
 }
@@ -411,7 +427,7 @@ header .icon i {
   margin: 20px 0 0 300px;
 }
 
-.five .promo button a{
+.five .promo button a {
   text-decoration: none;
   color: #000;
 }
