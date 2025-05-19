@@ -128,6 +128,10 @@
         align-items: center;
       }
 
+      .container {
+        height: 100vh;
+      }
+
       /* Breadcrumbs */
       .breadcrumbs {
         margin-left: 20px;
@@ -229,7 +233,7 @@
 
       .thumbnail.active {
         opacity: 1;
-        border: 2px solid #3498db;
+        border: 2px solid #8b3ec1;
       }
 
       .thumbnail:hover {
@@ -284,9 +288,9 @@
 
       .current-price {
         font-size: 28px;
-        font-weight: bold;
-        color: #e74c3c;
         margin-right: 15px;
+        font-weight: bolder;
+        font-family: "Italiana", sans-serif;
       }
 
       .original-price {
@@ -342,7 +346,7 @@
         left: -4px;
         right: -4px;
         bottom: -4px;
-        border: 2px solid #3498db;
+        border: 2px solid #8b3ec1;
         border-radius: 50%;
       }
 
@@ -362,13 +366,13 @@
       }
 
       .size-option:hover {
-        border-color: #3498db;
+        border-color: #8b3ec1;
       }
 
       .size-option.active {
-        background-color: #3498db;
+        background-color: #8b3ec1;
         color: white;
-        border-color: #3498db;
+        border-color: #8b3ec1;
       }
 
       .size-option.out-of-stock {
@@ -486,24 +490,24 @@
 
       .add-to-cart {
         background-color: #fff;
-        color: #3498db;
-        border: 2px solid #3498db;
+        color: #8b3ec1;
+        border: 2px solid #8b3ec1;
         flex: 1;
       }
 
       .add-to-cart:hover {
-        background-color: #3498db;
+        background-color: #8b3ec1;
         color: white;
       }
 
       .buy-now {
-        background-color: #3498db;
+        background-color: #8b3ec1;
         color: white;
         flex: 1;
       }
 
       .buy-now:hover {
-        background-color: #2980b9;
+        background-color: #641999;
       }
 
       .wishlist-btn {
@@ -530,88 +534,6 @@
         background-color: #fff0f0;
         color: #e74c3c;
         border-color: #ffcccc;
-      }
-
-      /* Product Details Tabs */
-      .product-details-tabs {
-        margin-bottom: 30px;
-      }
-
-      .tabs-header {
-        display: flex;
-        border-bottom: 1px solid #ddd;
-        margin-bottom: 20px;
-      }
-
-      .tab-btn {
-        padding: 12px 20px;
-        background-color: transparent;
-        border: none;
-        border-bottom: 3px solid transparent;
-        font-size: 16px;
-        font-weight: 500;
-        color: #666;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-
-      .tab-btn.active {
-        color: #3498db;
-        border-bottom-color: #3498db;
-      }
-
-      .tab-content {
-        display: none;
-        animation: fadeIn 0.5s ease;
-      }
-
-      .tab-content.active {
-        display: block;
-      }
-
-      .tab-content h3 {
-        margin-bottom: 15px;
-        color: #333;
-      }
-
-      .tab-content p {
-        margin-bottom: 15px;
-        color: #555;
-      }
-
-      .specifications-list {
-        list-style: none;
-      }
-
-      .specifications-list li {
-        display: flex;
-        padding: 10px 0;
-        border-bottom: 1px solid #eee;
-      }
-
-      .specifications-list li:last-child {
-        border-bottom: none;
-      }
-
-      .spec-name {
-        flex: 1;
-        font-weight: 500;
-        color: #666;
-      }
-
-      .spec-value {
-        flex: 2;
-        color: #333;
-      }
-
-      /* Animations */
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
       }
 
       /* Toast Notification */
@@ -676,9 +598,15 @@
       <p class="logo"><a href="index.html">Cloudy</a></p>
       <div class="icon">
         <div class="search-container">
-          <a href="#" class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+          <a href="#" class="search-icon"
+            ><i class="fa-solid fa-magnifying-glass"></i
+          ></a>
           <div class="search-input-container">
-            <input type="text" id="search-input" placeholder="Search products..." />
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search products..."
+            />
           </div>
         </div>
         <a href="#"><i class="fa-regular fa-user"></i></a>
@@ -701,7 +629,7 @@
           <div class="main-image">
             <img
               id="main-product-image"
-              src="https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=1470&auto=format&fit=crop"
+              src="/Image/1.jpg"
               alt="Premium Leather Jacket"
             />
             <div class="image-nav prev-image">
@@ -712,41 +640,17 @@
             </div>
           </div>
           <div class="thumbnail-container">
-            <div
-              class="thumbnail active"
-              data-image="/Image/5.webp"
-            >
-              <img
-                src="/Image/5.webp"
-                alt="Leather Jacket Front"
-              />
+            <div class="thumbnail active" data-image="/Image/5.webp">
+              <img src="/Image/5.webp" alt="Leather Jacket Front" />
             </div>
-            <div
-              class="thumbnail"
-              data-image="/Image/4.jpg"
-            >
-              <img
-                src="/Image/4.jpg"
-                alt="Leather Jacket Side"
-              />
+            <div class="thumbnail" data-image="/Image/4.jpg">
+              <img src="/Image/4.jpg" alt="Leather Jacket Side" />
             </div>
-            <div
-              class="thumbnail"
-              data-image="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=1472&auto=format&fit=crop"
-            >
-              <img
-                src="/Image/2.jpg"
-                alt="Leather Jacket Back"
-              />
+            <div class="thumbnail" data-image="/Image/2.jpg">
+              <img src="/Image/2.jpg" alt="Leather Jacket Back" />
             </div>
-            <div
-              class="thumbnail"
-              data-image="https://images.unsplash.com/photo-1520975954732-35dd22299614?q=80&w=1374&auto=format&fit=crop"
-            >
-              <img
-                src="/Image/1.jpg"
-                alt="Leather Jacket Detail"
-              />
+            <div class="thumbnail" data-image="/Image/1.jpg">
+              <img src="/Image/1.jpg" alt="Leather Jacket Detail" />
             </div>
           </div>
         </div>
@@ -773,10 +677,10 @@
           </div>
 
           <p class="product-description">
-            This premium leather jacket combines classic style with modern
-            comfort. Crafted from genuine leather with a smooth finish, it
+            This leather jacket combines classic style with modern
+            comfort. Crafted from genuine leather with <br> a smooth finish, it
             features a timeless design that will elevate any outfit. The jacket
-            includes multiple pockets, adjustable cuffs, and a comfortable
+            includes <br> multiple pockets, adjustable cuffs, and a comfortable
             lining for all-day wear.
           </p>
 
