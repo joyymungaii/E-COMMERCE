@@ -22,23 +22,19 @@
       href="https://fonts.googleapis.com/css2?family=Italiana&family=Italianno&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
-    <title>Cloudy</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
+    <title>My Profile | Cloudy</title>
     <style>
       /* Base Styles */
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: "Italiana", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       }
 
       body {
         background-color: #f5f5f5;
-        color: #333;
+        color: #1a1a1a;
         line-height: 1.6;
       }
 
@@ -124,7 +120,7 @@
         border-radius: 20px;
         padding: 0 40px 0 15px;
         font-size: 16px;
-        font-family: "Italiana", sans-serif;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         outline: none;
       }
 
@@ -143,7 +139,19 @@
         align-items: center;
       }
 
-      /* Profile Section */
+      /* Profile Page Styles */
+      .page-title {
+        font-size: 32px;
+        margin-bottom: 10px;
+        font-weight: 500;
+        color: #1a1a1a;
+      }
+
+      .profile-subtitle {
+        color: #4a4a4a;
+        margin-bottom: 30px;
+      }
+
       .profile-container {
         display: flex;
         flex-wrap: wrap;
@@ -154,308 +162,370 @@
         flex: 1;
         min-width: 250px;
         max-width: 300px;
-        background-color: #fff;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        padding: 20px;
       }
 
       .profile-content {
         flex: 3;
         min-width: 300px;
+      }
+
+      /* Profile Card */
+      .profile-card {
         background-color: #fff;
         border-radius: 8px;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        padding: 30px;
+        padding: 25px;
+        margin-bottom: 20px;
+        text-align: center;
       }
 
-      /* User Info */
-      .user-info {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 30px;
-      }
-
-      .user-avatar {
-        width: 100px;
-        height: 100px;
+      .profile-image {
+        width: 120px;
+        height: 120px;
         border-radius: 50%;
-        background-color: #000;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        font-size: 40px;
-        margin-bottom: 15px;
+        object-fit: cover;
+        margin: 0 auto 15px;
+        border: 3px solid #8b3ec1;
       }
 
-      .user-name {
-        font-size: 18px;
-        font-weight: bold;
+      .profile-name {
+        font-size: 22px;
         margin-bottom: 5px;
+        font-weight: 500;
       }
 
-      .user-email {
+      .profile-email {
+        color: #4a4a4a;
+        margin-bottom: 20px;
         font-size: 14px;
-        color: #666;
-        margin-bottom: 15px;
+      }
+
+      .profile-stats {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .stat-item {
+        flex: 1;
+      }
+
+      .stat-value {
+        font-size: 18px;
+        font-weight: 500;
+        color: #8b3ec1;
+      }
+
+      .stat-label {
+        font-size: 12px;
+        color: #4a4a4a;
       }
 
       .edit-profile-btn {
-        background-color: transparent;
-        border: 1px solid #000;
-        color: #000;
-        padding: 8px 15px;
+        background-color: #8b3ec1;
+        color: white;
+        border: none;
         border-radius: 4px;
-        cursor: pointer;
+        padding: 10px 20px;
         font-size: 14px;
-        transition: all 0.3s ease;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        width: 100%;
       }
 
       .edit-profile-btn:hover {
-        background-color: #000;
-        color: white;
+        background-color: #7935a8;
       }
 
       /* Navigation Menu */
       .profile-nav {
-        list-style: none;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
       }
 
-      .profile-nav li {
-        margin-bottom: 10px;
-      }
-
-      .profile-nav a {
+      .nav-item {
         display: flex;
         align-items: center;
-        padding: 10px 15px;
+        padding: 15px 20px;
+        border-bottom: 1px solid #eee;
+        color: #4a4a4a;
         text-decoration: none;
-        color: #555;
-        border-radius: 4px;
         transition: all 0.3s ease;
       }
 
-      .profile-nav a:hover {
-        background-color: #f5eafa;
-        color: #000;
+      .nav-item:last-child {
+        border-bottom: none;
       }
 
-      .profile-nav a.active {
-        background-color: #000;
-        color: white;
+      .nav-item:hover {
+        background-color: #f9f5fd;
+        color: #8b3ec1;
       }
 
-      .profile-nav i {
-        margin-right: 10px;
+      .nav-item.active {
+        background-color: #f9f5fd;
+        color: #8b3ec1;
+        border-left: 3px solid #8b3ec1;
+      }
+
+      .nav-icon {
+        margin-right: 15px;
         width: 20px;
         text-align: center;
       }
 
-      .badge {
-        background-color: #e74c3c;
-        color: white;
-        font-size: 12px;
-        padding: 2px 6px;
-        border-radius: 10px;
-        margin-left: auto;
-      }
-
       /* Tab Content */
       .tab-content {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        padding: 25px;
+      }
+
+      .tab-pane {
         display: none;
       }
 
-      .tab-content.active {
+      .tab-pane.active {
         display: block;
-        animation: fadeIn 0.5s ease;
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
       }
 
       .section-title {
-        font-size: 24px;
+        font-size: 20px;
         margin-bottom: 20px;
-        color: #333;
+        font-weight: 500;
         display: flex;
         align-items: center;
       }
 
       .section-title i {
         margin-right: 10px;
+        color: #8b3ec1;
+      }
+
+      /* Inbox Section */
+      .message-list {
+        list-style: none;
+        width: 100%;
+      }
+
+      .message-item {
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        align-items: flex-start;
+        transition: background-color 0.3s ease;
+        width: 100%;
+      }
+
+      .message-item:last-child {
+        border-bottom: none;
+      }
+
+      .message-item:hover {
+        background-color: #f8f9fa;
+      }
+
+      .message-icon {
+        margin-right: 15px;
+        font-size: 20px;
+        color: #000;
+        flex-shrink: 0; /* Prevents icon from shrinking */
+      }
+
+      .message-content {
+        flex: 1;
+        min-width: 0; /* Critical for text-overflow to work properly */
+        overflow: hidden; /* Ensures content doesn't overflow */
+        width: 100%;
+      }
+
+      .message-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5px;
+        flex-wrap: wrap; /* Allows wrapping on very small screens */
+      }
+
+      .message-sender {
+        font-weight: bold;
+        color: #1a1a1a;
+        margin-right: 10px; /* Space between sender and date */
+      }
+
+      .message-date {
+        font-size: 12px;
+        color: #4a4a4a;
+        white-space: nowrap; /* Keep date on one line */
+      }
+
+      .message-subject {
+        font-weight: 500;
+        margin-bottom: 5px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+      }
+
+      .message-preview {
+        font-size: 14px;
+        color: #4a4a4a;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* Show only 2 lines */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal; /* Allow text to wrap */
+        line-height: 1.4;
+        max-height: 2.8em; /* 2 lines × line-height */
+      }
+
+      .message-item.unread {
+        background-color: #f5eafa;
+      }
+
+      .message-item.unread .message-sender,
+      .message-item.unread .message-subject {
         color: #000;
       }
 
-      /* Overview Section */
-      .stats-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
+      /* Orders Section */
+      .order-list {
         margin-bottom: 30px;
       }
 
-      .stat-card {
-        flex: 1;
-        min-width: 150px;
-        background-color: #f8f9fa;
+      .order-item {
+        border: 1px solid #eee;
         border-radius: 8px;
-        padding: 20px;
+        margin-bottom: 15px;
+        overflow: hidden;
+      }
+
+      .order-header {
+        background-color: #f9f9f9;
+        padding: 15px;
         display: flex;
-        flex-direction: column;
+        justify-content: space-between;
         align-items: center;
-        text-align: center;
+        flex-wrap: wrap;
+        gap: 10px;
       }
 
-      .stat-icon {
-        font-size: 30px;
-        margin-bottom: 10px;
-        color: #000;
+      .order-number {
+        font-weight: 500;
       }
 
-      .stat-value {
-        font-size: 24px;
-        font-weight: bold;
+      .order-date {
+        color: #4a4a4a;
+        font-size: 14px;
+      }
+
+      .order-status {
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      .status-delivered {
+        background-color: #e6f7e6;
+        color: #2e7d32;
+      }
+
+      .status-processing {
+        background-color: #fff8e1;
+        color: #ff8f00;
+      }
+
+      .status-cancelled {
+        background-color: #ffebee;
+        color: #c62828;
+      }
+
+      .order-details {
+        padding: 15px;
+      }
+
+      .order-product {
+        display: flex;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .order-product:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+
+      .product-image {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 4px;
+        margin-right: 15px;
+      }
+
+      .product-info {
+        flex: 1;
+      }
+
+      .product-name {
+        font-weight: 500;
         margin-bottom: 5px;
       }
 
-      .stat-label {
+      .product-meta {
         font-size: 14px;
-        color: #666;
+        color: #4a4a4a;
+        margin-bottom: 5px;
       }
 
-      .account-details {
-        background-color: #f8f9fa;
-        border-radius: 8px;
-        padding: 20px;
-      }
-
-      .detail-item {
-        display: flex;
-        margin-bottom: 15px;
-      }
-
-      .detail-label {
-        flex: 1;
+      .product-price {
         font-weight: 500;
-        color: #666;
       }
 
-      .detail-value {
-        flex: 2;
-        color: #333;
+      .order-footer {
+        background-color: #f9f9f9;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
 
-/* Inbox Section */
-.message-list {
-  list-style: none;
-  width: 100%;
-}
+      .order-total {
+        font-weight: 500;
+      }
 
-.message-item {
-  padding: 15px;
-  border-bottom: 1px solid #eee;
-  display: flex;
-  align-items: flex-start;
-  transition: background-color 0.3s ease;
-  width: 100%;
-}
+      .order-actions {
+        display: flex;
+        gap: 10px;
+      }
 
-.message-item:last-child {
-  border-bottom: none;
-}
+      .btn {
+        padding: 8px 15px;
+        border-radius: 4px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: none;
+      }
 
-.message-item:hover {
-  background-color: #f8f9fa;
-}
+      .btn-outline {
+        background-color: transparent;
+        border: 1px solid #8b3ec1;
+        color: #8b3ec1;
+      }
 
-.message-icon {
-  margin-right: 15px;
-  font-size: 20px;
-  color: #000;
-  flex-shrink: 0; /* Prevents icon from shrinking */
-}
-
-.message-content {
-  flex: 1;
-  min-width: 0; /* Critical for text-overflow to work properly */
-  overflow: hidden; /* Ensures content doesn't overflow */
-  width: 100%;
-}
-
-.message-header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 5px;
-  flex-wrap: wrap; /* Allows wrapping on very small screens */
-}
-
-.message-sender {
-  font-weight: bold;
-  color: #333;
-  margin-right: 10px; /* Space between sender and date */
-}
-
-.message-date {
-  font-size: 12px;
-  color: #999;
-  white-space: nowrap; /* Keep date on one line */
-}
-
-.message-subject {
-  font-weight: 500;
-  margin-bottom: 5px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 100%;
-}
-
-.message-preview {
-  font-size: 14px;
-  color: #666;
-  display: -webkit-box;
-  -webkit-line-clamp: 2; /* Show only 2 lines */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: normal; /* Allow text to wrap */
-  line-height: 1.4;
-  max-height: 2.8em; /* 2 lines × line-height */
-}
-
-.message-item.unread {
-  background-color: #f5eafa;
-}
-
-.message-item.unread .message-sender,
-.message-item.unread .message-subject {
-  color: #000;
-}
-
-/* Responsive adjustments */
-@media (max-width: 576px) {
-  .message-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .message-date {
-    margin-top: 2px;
-    font-size: 11px;
-  }
-  
-  .message-icon {
-    font-size: 18px;
-  }
-}
+      .btn-outline:hover {
+        background-color: #8b3ec1;
+        color: white;
+      }
 
       /* Wishlist Section */
       .wishlist-grid {
@@ -465,10 +535,9 @@
       }
 
       .wishlist-item {
-        background-color: #fff;
+        border: 1px solid #eee;
         border-radius: 8px;
         overflow: hidden;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
 
@@ -487,8 +556,7 @@
         padding: 15px;
       }
 
-      .wishlist-title {
-        font-size: 16px;
+      .wishlist-name {
         font-weight: 500;
         margin-bottom: 5px;
         white-space: nowrap;
@@ -497,9 +565,8 @@
       }
 
       .wishlist-price {
-        font-size: 18px;
-        font-weight: bold;
-        color: #e74c3c;
+        color: #8b3ec1;
+        font-weight: 500;
         margin-bottom: 10px;
       }
 
@@ -508,200 +575,40 @@
         gap: 10px;
       }
 
-      .wishlist-btn {
-        flex: 1;
-        padding: 8px;
-        border: none;
-        border-radius: 4px;
-        font-size: 12px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .add-to-cart-btn {
-        background-color: #000;
-        color: white;
-      }
-
-      .add-to-cart-btn:hover {
-        background-color: #7a32ad;
-      }
-
-      .remove-btn {
-        background-color: #f8f9fa;
-        color: #666;
-      }
-
-      .remove-btn:hover {
-        background-color: #e74c3c;
-        color: white;
-      }
-
-      /* Orders Section */
-      .order-tabs {
-        display: flex;
-        border-bottom: 1px solid #ddd;
-        margin-bottom: 20px;
-      }
-
-      .order-tab {
-        padding: 10px 20px;
-        cursor: pointer;
-        border-bottom: 3px solid transparent;
-        transition: all 0.3s ease;
-      }
-
-      .order-tab.active {
-        border-bottom-color: #000;
-        color: #000;
-      }
-
-      .order-list {
-        list-style: none;
-      }
-
-      .order-item {
-        background-color: #f8f9fa;
-        border-radius: 8px;
-        padding: 20px;
-        margin-bottom: 20px;
-      }
-
-      .order-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 15px;
-        padding-bottom: 15px;
-        border-bottom: 1px solid #eee;
-      }
-
-      .order-id {
-        font-weight: bold;
-        color: #333;
-      }
-
-      .order-date {
-        color: #666;
-        font-size: 14px;
-      }
-
-      .order-status {
+      .btn-sm {
         padding: 5px 10px;
-        border-radius: 20px;
         font-size: 12px;
-        font-weight: 500;
       }
 
-      .status-processing {
-        background-color: #f39c12;
+      .btn-primary {
+        background-color: #8b3ec1;
         color: white;
       }
 
-      .status-shipped {
-        background-color: #000;
-        color: white;
+      .btn-primary:hover {
+        background-color: #7935a8;
       }
 
-      .status-delivered {
-        background-color: #27ae60;
-        color: white;
+      /* Empty States */
+      .empty-state {
+        text-align: center;
+        padding: 40px 20px;
       }
 
-      .status-cancelled {
-        background-color: #e74c3c;
-        color: white;
+      .empty-icon {
+        font-size: 50px;
+        color: #ddd;
+        margin-bottom: 20px;
       }
 
-      .order-products {
-        margin-bottom: 15px;
-      }
-
-      .order-product {
-        display: flex;
-        align-items: center;
-        padding: 10px 0;
-        border-bottom: 1px solid #eee;
-      }
-
-      .order-product:last-child {
-        border-bottom: none;
-      }
-
-      .product-image {
-        width: 60px;
-        height: 60px;
-        border-radius: 4px;
-        object-fit: cover;
-        margin-right: 15px;
-      }
-
-      .product-details {
-        flex: 1;
-      }
-
-      .product-name {
-        font-weight: 500;
-        margin-bottom: 5px;
-      }
-
-      .product-meta {
-        font-size: 12px;
-        color: #666;
-      }
-
-      .product-price {
-        font-weight: bold;
-        color: #333;
-      }
-
-      .order-footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-top: 15px;
-        border-top: 1px solid #eee;
-      }
-
-      .order-total {
+      .empty-text {
         font-size: 18px;
-        font-weight: bold;
+        margin-bottom: 10px;
       }
 
-      .order-actions {
-        display: flex;
-        gap: 10px;
-      }
-
-      .order-btn {
-        padding: 8px 15px;
-        border: none;
-        border-radius: 4px;
-        font-size: 14px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-
-      .track-btn {
-        background-color: #000;
-        color: white;
-      }
-
-      .track-btn:hover {
-        background-color: #7a32ad;
-      }
-
-      .details-btn {
-        background-color: #f8f9fa;
-        color: #333;
-        border: 1px solid #ddd;
-      }
-
-      .details-btn:hover {
-        background-color: #eee;
+      .empty-subtext {
+        color: #4a4a4a;
+        margin-bottom: 20px;
       }
 
       /* Responsive Styles */
@@ -714,6 +621,10 @@
       @media (max-width: 992px) {
         header {
           gap: 20rem;
+        }
+
+        .profile-sidebar {
+          max-width: 100%;
         }
       }
 
@@ -734,30 +645,13 @@
           max-width: 100%;
         }
 
-        .stats-container {
-          flex-direction: column;
-        }
-
-        .wishlist-grid {
-          grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        }
-
         .order-header {
           flex-direction: column;
           align-items: flex-start;
         }
 
-        .order-status {
-          margin-top: 10px;
-        }
-
-        .order-footer {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
-        .order-total {
-          margin-bottom: 10px;
+        .wishlist-grid {
+          grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
         }
       }
 
@@ -781,6 +675,33 @@
         .search-input-container.active {
           width: 200px;
         }
+
+        .page-title {
+          font-size: 24px;
+        }
+
+        .order-product {
+          flex-direction: column;
+        }
+
+        .product-image {
+          margin-bottom: 10px;
+        }
+
+        .order-footer {
+          flex-direction: column;
+          gap: 10px;
+          align-items: flex-start;
+        }
+
+        .order-actions {
+          width: 100%;
+          justify-content: space-between;
+        }
+
+        .wishlist-grid {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
@@ -800,536 +721,440 @@
             />
           </div>
         </div>
-        <a href="profile.html"><i class="fa-regular fa-user"></i></a>
-        <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-        <span class="cart-count">2</span>
+        <a href="#"><i class="fa-regular fa-user"></i></a>
+        <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
       </div>
     </header>
 
     <div class="container">
+      <h1 class="page-title">My Account</h1>
+      <p class="profile-subtitle">
+        Manage your profile, orders, wishlist and messages
+      </p>
+
       <div class="profile-container">
-        <!-- Profile Sidebar -->
         <div class="profile-sidebar">
-          <div class="user-info">
-            <div class="user-avatar">
-              <i class="fas fa-user"></i>
+          <div class="profile-card">
+            <img
+              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1374&auto=format&fit=crop"
+              alt="Profile Image"
+              class="profile-image"
+            />
+            <h2 class="profile-name">Sarah Johnson</h2>
+            <p class="profile-email">sarah.johnson@example.com</p>
+
+            <div class="profile-stats">
+              <div class="stat-item">
+                <div class="stat-value">12</div>
+                <div class="stat-label">Orders</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">5</div>
+                <div class="stat-label">Wishlist</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">3</div>
+                <div class="stat-label">Reviews</div>
+              </div>
             </div>
-            <h3 class="user-name">John Doe</h3>
-            <p class="user-email">john.doe@example.com</p>
+
             <button class="edit-profile-btn">Edit Profile</button>
           </div>
 
-          <ul class="profile-nav">
-            <li>
-              <a href="#overview" class="active" data-tab="overview">
-                <i class="fas fa-home"></i> Overview
-              </a>
-            </li>
-            <li>
-              <a href="#inbox" data-tab="inbox">
-                <i class="fas fa-envelope"></i> Inbox
-                <span class="badge">3</span>
-              </a>
-            </li>
-            <li>
-              <a href="#wishlist" data-tab="wishlist">
-                <i class="fas fa-heart"></i> Wishlist
-              </a>
-            </li>
-            <li>
-              <a href="#orders" data-tab="orders">
-                <i class="fas fa-box"></i> Orders
-              </a>
-            </li>
-            <li>
-              <a href="#settings"> <i class="fas fa-cog"></i> Settings </a>
-            </li>
-            <li>
-              <a href="#logout"> <i class="fas fa-sign-out-alt"></i> Logout </a>
-            </li>
-          </ul>
+          <div class="profile-nav">
+            <a href="#inbox" class="nav-item active" data-tab="inbox">
+              <span class="nav-icon"><i class="fas fa-inbox"></i></span>
+              Inbox
+            </a>
+            <a href="#orders" class="nav-item" data-tab="orders">
+              <span class="nav-icon"><i class="fas fa-shopping-bag"></i></span>
+              My Orders
+            </a>
+            <a href="#wishlist" class="nav-item" data-tab="wishlist">
+              <span class="nav-icon"><i class="fas fa-heart"></i></span>
+              Wishlist
+            </a>
+            <a href="#settings" class="nav-item" data-tab="settings">
+              <span class="nav-icon"><i class="fas fa-cog"></i></span>
+              Account Settings
+            </a>
+            <a href="#" class="nav-item">
+              <span class="nav-icon"><i class="fas fa-sign-out-alt"></i></span>
+              Logout
+            </a>
+          </div>
         </div>
 
-        <!-- Profile Content -->
         <div class="profile-content">
-          <!-- Overview Tab -->
-          <div id="overview" class="tab-content active">
-            <h2 class="section-title">
-              <i class="fas fa-home"></i> Account Overview
-            </h2>
+          <div class="tab-content">
+            <!-- Inbox Tab -->
+            <div class="tab-pane active" id="inbox">
+              <h2 class="section-title"><i class="fas fa-inbox"></i> Inbox</h2>
 
-            <div class="stats-container">
-              <div class="stat-card">
-                <div class="stat-icon">
-                  <i class="fas fa-box"></i>
-                </div>
-                <div class="stat-value">5</div>
-                <div class="stat-label">Total Orders</div>
-              </div>
-
-              <div class="stat-card">
-                <div class="stat-icon">
-                  <i class="fas fa-heart"></i>
-                </div>
-                <div class="stat-value">12</div>
-                <div class="stat-label">Wishlist Items</div>
-              </div>
-
-              <div class="stat-card">
-                <div class="stat-icon">
-                  <i class="fas fa-envelope"></i>
-                </div>
-                <div class="stat-value">3</div>
-                <div class="stat-label">Unread Messages</div>
-              </div>
-            </div>
-
-            <h3 style="margin-bottom: 15px">Account Details</h3>
-            <div class="account-details">
-              <div class="detail-item">
-                <div class="detail-label">Full Name</div>
-                <div class="detail-value">John Doe</div>
-              </div>
-
-              <div class="detail-item">
-                <div class="detail-label">Email</div>
-                <div class="detail-value">john.doe@example.com</div>
-              </div>
-
-              <div class="detail-item">
-                <div class="detail-label">Phone</div>
-                <div class="detail-value">+1 (555) 123-4567</div>
-              </div>
-
-              <div class="detail-item">
-                <div class="detail-label">Address</div>
-                <div class="detail-value">
-                  123 Main Street, Apt 4B<br />New York, NY 10001
-                </div>
-              </div>
-
-              <div class="detail-item">
-                <div class="detail-label">Member Since</div>
-                <div class="detail-value">January 15, 2023</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Inbox Tab -->
-          <div id="inbox" class="tab-content">
-            <h2 class="section-title"><i class="fas fa-envelope"></i> Inbox</h2>
-
-            <ul class="message-list">
-              <li class="message-item unread">
-                <div class="message-icon">
-                  <i class="fas fa-envelope"></i>
-                </div>
-                <div class="message-content">
-                  <div class="message-header">
-                    <span class="message-sender">CLOUDY Support</span>
-                    <span class="message-date">Today, 10:45 AM</span>
+              <ul class="message-list">
+                <li class="message-item unread">
+                  <div class="message-icon">
+                    <i class="fas fa-envelope"></i>
                   </div>
-                  <div class="message-subject">
-                    Your order #ORD-2023-8754 has been shipped!
-                  </div>
-                  <div class="message-preview">
-                    Hello John, We're happy to inform you that your recent order
-                    has been shipped and is on its way to you. You can track
-                    your package using the following tracking number...
-                  </div>
-                </div>
-              </li>
-
-              <li class="message-item unread">
-                <div class="message-icon">
-                  <i class="fas fa-tag"></i>
-                </div>
-                <div class="message-content">
-                  <div class="message-header">
-                    <span class="message-sender">CLOUDY Promotions</span>
-                    <span class="message-date">Yesterday, 3:20 PM</span>
-                  </div>
-                  <div class="message-subject">
-                    Flash Sale: 30% off all jackets!
-                  </div>
-                  <div class="message-preview">
-                    Don't miss our 48-hour flash sale with 30% off all jackets
-                    and outerwear! Use code JACKET30 at checkout to claim your
-                    discount...
-                  </div>
-                </div>
-              </li>
-
-              <li class="message-item unread">
-                <div class="message-icon">
-                  <i class="fas fa-gift"></i>
-                </div>
-                <div class="message-content">
-                  <div class="message-header">
-                    <span class="message-sender">CLOUDY Rewards</span>
-                    <span class="message-date">May 18, 2023</span>
-                  </div>
-                  <div class="message-subject">
-                    You've earned 500 reward points!
-                  </div>
-                  <div class="message-preview">
-                    Congratulations! You've earned 500 reward points from your
-                    recent purchase. You now have a total of 1,250 points which
-                    can be redeemed for a $25 discount on your next order...
-                  </div>
-                </div>
-              </li>
-
-              <li class="message-item">
-                <div class="message-icon">
-                  <i class="fas fa-envelope"></i>
-                </div>
-                <div class="message-content">
-                  <div class="message-header">
-                    <span class="message-sender">CLOUDY Support</span>
-                    <span class="message-date">May 10, 2023</span>
-                  </div>
-                  <div class="message-subject">
-                    Your order #ORD-2023-7651 has been delivered
-                  </div>
-                  <div class="message-preview">
-                    Hello John, Your order has been delivered successfully. We
-                    hope you love your new items! If you have any questions or
-                    concerns, please don't hesitate to contact us...
-                  </div>
-                </div>
-              </li>
-
-              <li class="message-item">
-                <div class="message-icon">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="message-content">
-                  <div class="message-header">
-                    <span class="message-sender">CLOUDY Feedback</span>
-                    <span class="message-date">April 28, 2023</span>
-                  </div>
-                  <div class="message-subject">
-                    How was your shopping experience?
-                  </div>
-                  <div class="message-preview">
-                    We value your opinion! Please take a moment to rate your
-                    recent shopping experience with us. Your feedback helps us
-                    improve our services...
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Wishlist Tab -->
-          <div id="wishlist" class="tab-content">
-            <h2 class="section-title">
-              <i class="fas fa-heart"></i> My Wishlist
-            </h2>
-
-            <div class="wishlist-grid">
-              <div class="wishlist-item">
-                <img
-                  src="https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=1470&auto=format&fit=crop"
-                  class="wishlist-image"
-                  alt="Leather Jacket"
-                />
-                <div class="wishlist-details">
-                  <h3 class="wishlist-title">Premium Leather Jacket</h3>
-                  <div class="wishlist-price">$199.99</div>
-                  <div class="wishlist-actions">
-                    <button class="wishlist-btn add-to-cart-btn">
-                      <i class="fas fa-shopping-cart"></i>
-                    </button>
-                    <button class="wishlist-btn remove-btn">
-                      <i class="fas fa-trash"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="wishlist-item">
-                <img
-                  src="https://images.unsplash.com/photo-1543076447-215ad9ba6923?q=80&w=1374&auto=format&fit=crop"
-                  class="wishlist-image"
-                  alt="Casual Shirt"
-                />
-                <div class="wishlist-details">
-                  <h3 class="wishlist-title">Casual Button-Up Shirt</h3>
-                  <div class="wishlist-price">$49.99</div>
-                  <div class="wishlist-actions">
-                    <button class="wishlist-btn add-to-cart-btn">
-                      <i class="fas fa-shopping-cart"></i>
-                    </button>
-                    <button class="wishlist-btn remove-btn">
-                      <i class="fas fa-trash"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="wishlist-item">
-                <img
-                  src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?q=80&w=1528&auto=format&fit=crop"
-                  class="wishlist-image"
-                  alt="Sneakers"
-                />
-                <div class="wishlist-details">
-                  <h3 class="wishlist-title">Classic White Sneakers</h3>
-                  <div class="wishlist-price">$79.99</div>
-                  <div class="wishlist-actions">
-                    <button class="wishlist-btn add-to-cart-btn">
-                      <i class="fas fa-shopping-cart"></i>
-                    </button>
-                    <button class="wishlist-btn remove-btn">
-                      <i class="fas fa-trash"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="wishlist-item">
-                <img
-                  src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=1472&auto=format&fit=crop"
-                  class="wishlist-image"
-                  alt="Jeans"
-                />
-                <div class="wishlist-details">
-                  <h3 class="wishlist-title">Slim Fit Denim Jeans</h3>
-                  <div class="wishlist-price">$59.99</div>
-                  <div class="wishlist-actions">
-                    <button class="wishlist-btn add-to-cart-btn">
-                      <i class="fas fa-shopping-cart"></i>
-                    </button>
-                    <button class="wishlist-btn remove-btn">
-                      <i class="fas fa-trash"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Orders Tab -->
-          <div id="orders" class="tab-content">
-            <h2 class="section-title"><i class="fas fa-box"></i> My Orders</h2>
-
-            <div class="order-tabs">
-              <div class="order-tab active" data-order-tab="current">
-                Current Orders
-              </div>
-              <div class="order-tab" data-order-tab="past">Past Orders</div>
-            </div>
-
-            <!-- Current Orders -->
-            <div id="current-orders" class="order-content active">
-              <ul class="order-list">
-                <li class="order-item">
-                  <div class="order-header">
-                    <div>
-                      <div class="order-id">Order #ORD-2023-8754</div>
-                      <div class="order-date">Placed on May 18, 2023</div>
+                  <div class="message-content">
+                    <div class="message-header">
+                      <span class="message-sender">Cloudy Support</span>
+                      <span class="message-date">Today, 10:30 AM</span>
                     </div>
-                    <span class="order-status status-processing"
-                      >Processing</span
-                    >
+                    <div class="message-subject">
+                      Your order has been shipped!
+                    </div>
+                    <div class="message-preview">
+                      Hi Sarah, We're happy to inform you that your order #12345
+                      has been shipped and is on its way to you. You can track
+                      your package using the tracking number provided in your
+                      order details. Thank you for shopping with Cloudy!
+                    </div>
+                  </div>
+                </li>
+
+                <li class="message-item">
+                  <div class="message-icon">
+                    <i class="fas fa-envelope-open"></i>
+                  </div>
+                  <div class="message-content">
+                    <div class="message-header">
+                      <span class="message-sender">Cloudy Promotions</span>
+                      <span class="message-date">Yesterday, 2:15 PM</span>
+                    </div>
+                    <div class="message-subject">
+                      Summer Sale: Up to 50% off!
+                    </div>
+                    <div class="message-preview">
+                      Dear Sarah, Our summer sale is now live! Enjoy up to 50%
+                      off on selected items across all categories. Don't miss
+                      out on these amazing deals. Shop now before your favorites
+                      sell out!
+                    </div>
+                  </div>
+                </li>
+
+                <li class="message-item">
+                  <div class="message-icon">
+                    <i class="fas fa-envelope-open"></i>
+                  </div>
+                  <div class="message-content">
+                    <div class="message-header">
+                      <span class="message-sender">Cloudy Support</span>
+                      <span class="message-date">May 15, 2023</span>
+                    </div>
+                    <div class="message-subject">
+                      Thank you for your purchase!
+                    </div>
+                    <div class="message-preview">
+                      Hi Sarah, Thank you for your recent purchase! We hope you
+                      love your new items. If you have any questions or
+                      concerns, please don't hesitate to reach out to our
+                      customer support team. We're always here to help!
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Orders Tab -->
+            <div class="tab-pane" id="orders">
+              <h2 class="section-title">
+                <i class="fas fa-shopping-bag"></i> My Orders
+              </h2>
+
+              <div class="order-list">
+                <div class="order-item">
+                  <div class="order-header">
+                    <div class="order-number">Order #12345</div>
+                    <div class="order-date">May 20, 2023</div>
+                    <div class="order-status status-delivered">Delivered</div>
                   </div>
 
-                  <div class="order-products">
+                  <div class="order-details">
                     <div class="order-product">
                       <img
                         src="https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=1470&auto=format&fit=crop"
                         class="product-image"
                         alt="Leather Jacket"
                       />
-                      <div class="product-details">
+                      <div class="product-info">
                         <div class="product-name">Premium Leather Jacket</div>
-                        <div class="product-meta">Size: M, Color: Black</div>
+                        <div class="product-meta">Size: M | Color: Black</div>
+                        <div class="product-price">$199.99</div>
                       </div>
-                      <div class="product-price">$199.99</div>
                     </div>
+                  </div>
 
+                  <div class="order-footer">
+                    <div class="order-total">Total: $199.99</div>
+                    <div class="order-actions">
+                      <button class="btn btn-outline">Track Order</button>
+                      <button class="btn btn-outline">Leave Review</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="order-item">
+                  <div class="order-header">
+                    <div class="order-number">Order #12346</div>
+                    <div class="order-date">April 15, 2023</div>
+                    <div class="order-status status-processing">Processing</div>
+                  </div>
+
+                  <div class="order-details">
                     <div class="order-product">
                       <img
                         src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=1472&auto=format&fit=crop"
                         class="product-image"
                         alt="Jeans"
                       />
-                      <div class="product-details">
+                      <div class="product-info">
                         <div class="product-name">Slim Fit Denim Jeans</div>
-                        <div class="product-meta">Size: 32, Color: Blue</div>
+                        <div class="product-meta">Size: 32 | Color: Blue</div>
+                        <div class="product-price">$59.99</div>
                       </div>
-                      <div class="product-price">$59.99</div>
                     </div>
-                  </div>
 
-                  <div class="order-footer">
-                    <div class="order-total">Total: $259.98</div>
-                    <div class="order-actions">
-                      <button class="order-btn track-btn">Track Order</button>
-                      <button class="order-btn details-btn">
-                        View Details
-                      </button>
-                    </div>
-                  </div>
-                </li>
-
-                <li class="order-item">
-                  <div class="order-header">
-                    <div>
-                      <div class="order-id">Order #ORD-2023-8632</div>
-                      <div class="order-date">Placed on May 10, 2023</div>
-                    </div>
-                    <span class="order-status status-shipped">Shipped</span>
-                  </div>
-
-                  <div class="order-products">
                     <div class="order-product">
                       <img
                         src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?q=80&w=1528&auto=format&fit=crop"
                         class="product-image"
                         alt="Sneakers"
                       />
-                      <div class="product-details">
+                      <div class="product-info">
                         <div class="product-name">Classic White Sneakers</div>
-                        <div class="product-meta">Size: 10, Color: White</div>
+                        <div class="product-meta">Size: 10 | Color: White</div>
+                        <div class="product-price">$79.99</div>
                       </div>
-                      <div class="product-price">$79.99</div>
                     </div>
                   </div>
 
                   <div class="order-footer">
-                    <div class="order-total">Total: $79.99</div>
+                    <div class="order-total">Total: $139.98</div>
                     <div class="order-actions">
-                      <button class="order-btn track-btn">Track Order</button>
-                      <button class="order-btn details-btn">
-                        View Details
-                      </button>
+                      <button class="btn btn-outline">Track Order</button>
+                      <button class="btn btn-outline">Cancel Order</button>
                     </div>
                   </div>
-                </li>
-              </ul>
+                </div>
+              </div>
             </div>
 
-            <!-- Past Orders -->
-            <div id="past-orders" class="order-content" style="display: none">
-              <ul class="order-list">
-                <li class="order-item">
-                  <div class="order-header">
-                    <div>
-                      <div class="order-id">Order #ORD-2023-7651</div>
-                      <div class="order-date">Placed on April 25, 2023</div>
-                    </div>
-                    <span class="order-status status-delivered">Delivered</span>
-                  </div>
+            <!-- Wishlist Tab -->
+            <div class="tab-pane" id="wishlist">
+              <h2 class="section-title">
+                <i class="fas fa-heart"></i> My Wishlist
+              </h2>
 
-                  <div class="order-products">
-                    <div class="order-product">
-                      <img
-                        src="https://images.unsplash.com/photo-1543076447-215ad9ba6923?q=80&w=1374&auto=format&fit=crop"
-                        class="product-image"
-                        alt="Casual Shirt"
-                      />
-                      <div class="product-details">
-                        <div class="product-name">Casual Button-Up Shirt</div>
-                        <div class="product-meta">Size: L, Color: Blue</div>
-                      </div>
-                      <div class="product-price">$49.99</div>
-                    </div>
-
-                    <div class="order-product">
-                      <img
-                        src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=1472&auto=format&fit=crop"
-                        class="product-image"
-                        alt="Jeans"
-                      />
-                      <div class="product-details">
-                        <div class="product-name">Slim Fit Denim Jeans</div>
-                        <div class="product-meta">Size: 32, Color: Black</div>
-                      </div>
-                      <div class="product-price">$59.99</div>
-                    </div>
-                  </div>
-
-                  <div class="order-footer">
-                    <div class="order-total">Total: $109.98</div>
-                    <div class="order-actions">
-                      <button class="order-btn details-btn">
-                        View Details
+              <div class="wishlist-grid">
+                <div class="wishlist-item">
+                  <img
+                    src="https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=1470&auto=format&fit=crop"
+                    class="wishlist-image"
+                    alt="Leather Jacket"
+                  />
+                  <div class="wishlist-details">
+                    <div class="wishlist-name">Premium Leather Jacket</div>
+                    <div class="wishlist-price">$199.99</div>
+                    <div class="wishlist-actions">
+                      <button class="btn btn-sm btn-primary">
+                        Add to Cart
                       </button>
+                      <button class="btn btn-sm btn-outline">Remove</button>
                     </div>
                   </div>
-                </li>
+                </div>
 
-                <li class="order-item">
-                  <div class="order-header">
-                    <div>
-                      <div class="order-id">Order #ORD-2023-6542</div>
-                      <div class="order-date">Placed on March 15, 2023</div>
-                    </div>
-                    <span class="order-status status-delivered">Delivered</span>
-                  </div>
-
-                  <div class="order-products">
-                    <div class="order-product">
-                      <img
-                        src="https://images.unsplash.com/photo-1520975954732-35dd22299614?q=80&w=1374&auto=format&fit=crop"
-                        class="product-image"
-                        alt="Watch"
-                      />
-                      <div class="product-details">
-                        <div class="product-name">Classic Leather Watch</div>
-                        <div class="product-meta">Color: Brown</div>
-                      </div>
-                      <div class="product-price">$129.99</div>
-                    </div>
-                  </div>
-
-                  <div class="order-footer">
-                    <div class="order-total">Total: $129.99</div>
-                    <div class="order-actions">
-                      <button class="order-btn details-btn">
-                        View Details
+                <div class="wishlist-item">
+                  <img
+                    src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=1472&auto=format&fit=crop"
+                    class="wishlist-image"
+                    alt="Jeans"
+                  />
+                  <div class="wishlist-details">
+                    <div class="wishlist-name">Slim Fit Denim Jeans</div>
+                    <div class="wishlist-price">$59.99</div>
+                    <div class="wishlist-actions">
+                      <button class="btn btn-sm btn-primary">
+                        Add to Cart
                       </button>
+                      <button class="btn btn-sm btn-outline">Remove</button>
                     </div>
                   </div>
-                </li>
+                </div>
 
-                <li class="order-item">
-                  <div class="order-header">
-                    <div>
-                      <div class="order-id">Order #ORD-2023-5421</div>
-                      <div class="order-date">Placed on February 28, 2023</div>
-                    </div>
-                    <span class="order-status status-cancelled">Cancelled</span>
-                  </div>
-
-                  <div class="order-products">
-                    <div class="order-product">
-                      <img
-                        src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?q=80&w=1528&auto=format&fit=crop"
-                        class="product-image"
-                        alt="Sneakers"
-                      />
-                      <div class="product-details">
-                        <div class="product-name">Classic White Sneakers</div>
-                        <div class="product-meta">Size: 10, Color: White</div>
-                      </div>
-                      <div class="product-price">$79.99</div>
-                    </div>
-                  </div>
-
-                  <div class="order-footer">
-                    <div class="order-total">Total: $79.99</div>
-                    <div class="order-actions">
-                      <button class="order-btn details-btn">
-                        View Details
+                <div class="wishlist-item">
+                  <img
+                    src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?q=80&w=1528&auto=format&fit=crop"
+                    class="wishlist-image"
+                    alt="Sneakers"
+                  />
+                  <div class="wishlist-details">
+                    <div class="wishlist-name">Classic White Sneakers</div>
+                    <div class="wishlist-price">$79.99</div>
+                    <div class="wishlist-actions">
+                      <button class="btn btn-sm btn-primary">
+                        Add to Cart
                       </button>
+                      <button class="btn btn-sm btn-outline">Remove</button>
                     </div>
                   </div>
-                </li>
-              </ul>
+                </div>
+
+                <div class="wishlist-item">
+                  <img
+                    src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=1530&auto=format&fit=crop"
+                    class="wishlist-image"
+                    alt="Sunglasses"
+                  />
+                  <div class="wishlist-details">
+                    <div class="wishlist-name">Designer Sunglasses</div>
+                    <div class="wishlist-price">$129.99</div>
+                    <div class="wishlist-actions">
+                      <button class="btn btn-sm btn-primary">
+                        Add to Cart
+                      </button>
+                      <button class="btn btn-sm btn-outline">Remove</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="wishlist-item">
+                  <img
+                    src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=1528&auto=format&fit=crop"
+                    class="wishlist-image"
+                    alt="Watch"
+                  />
+                  <div class="wishlist-details">
+                    <div class="wishlist-name">Luxury Wristwatch</div>
+                    <div class="wishlist-price">$299.99</div>
+                    <div class="wishlist-actions">
+                      <button class="btn btn-sm btn-primary">
+                        Add to Cart
+                      </button>
+                      <button class="btn btn-sm btn-outline">Remove</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Settings Tab -->
+            <div class="tab-pane" id="settings">
+              <h2 class="section-title">
+                <i class="fas fa-cog"></i> Account Settings
+              </h2>
+
+              <form>
+                <div class="form-section">
+                  <h3 style="margin-bottom: 15px">Personal Information</h3>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="first-name">First Name</label>
+                      <input type="text" id="first-name" value="Sarah" />
+                    </div>
+
+                    <div class="form-group">
+                      <label for="last-name">Last Name</label>
+                      <input type="text" id="last-name" value="Johnson" />
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="email">Email Address</label>
+                      <input
+                        type="email"
+                        id="email"
+                        value="sarah.johnson@example.com"
+                      />
+                    </div>
+
+                    <div class="form-group">
+                      <label for="phone">Phone Number</label>
+                      <input type="tel" id="phone" value="(555) 123-4567" />
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="birthday">Date of Birth</label>
+                      <input type="date" id="birthday" value="1990-05-15" />
+                    </div>
+
+                    <div class="form-group">
+                      <label for="gender">Gender</label>
+                      <select id="gender">
+                        <option value="female" selected>Female</option>
+                        <option value="male">Male</option>
+                        <option value="other">Other</option>
+                        <option value="prefer-not">Prefer not to say</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-section" style="margin-top: 20px">
+                  <h3 style="margin-bottom: 15px">Change Password</h3>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="current-password">Current Password</label>
+                      <input type="password" id="current-password" />
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="new-password">New Password</label>
+                      <input type="password" id="new-password" />
+                    </div>
+
+                    <div class="form-group">
+                      <label for="confirm-password">Confirm New Password</label>
+                      <input type="password" id="confirm-password" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-section" style="margin-top: 20px">
+                  <h3 style="margin-bottom: 15px">Notification Preferences</h3>
+
+                  <div style="margin-bottom: 15px">
+                    <input type="checkbox" id="email-notifications" checked />
+                    <label for="email-notifications"
+                      >Email notifications for orders and shipping
+                      updates</label
+                    >
+                  </div>
+
+                  <div style="margin-bottom: 15px">
+                    <input type="checkbox" id="promo-notifications" checked />
+                    <label for="promo-notifications"
+                      >Email notifications for promotions and sales</label
+                    >
+                  </div>
+
+                  <div style="margin-bottom: 15px">
+                    <input type="checkbox" id="sms-notifications" />
+                    <label for="sms-notifications"
+                      >SMS notifications for orders and shipping updates</label
+                    >
+                  </div>
+                </div>
+
+                <div style="margin-top: 30px">
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                    style="padding: 10px 20px"
+                  >
+                    Save Changes
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -1365,122 +1190,31 @@
       });
 
       // Tab Navigation
-      const navLinks = document.querySelectorAll(".profile-nav a[data-tab]");
-      const tabContents = document.querySelectorAll(".tab-content");
+      const navItems = document.querySelectorAll(".nav-item[data-tab]");
+      const tabPanes = document.querySelectorAll(".tab-pane");
 
-      navLinks.forEach((link) => {
-        link.addEventListener("click", function (e) {
+      navItems.forEach((item) => {
+        item.addEventListener("click", function (e) {
           e.preventDefault();
 
-          // Remove active class from all links and tabs
-          navLinks.forEach((link) => link.classList.remove("active"));
-          tabContents.forEach((tab) => tab.classList.remove("active"));
+          // Remove active class from all nav items
+          navItems.forEach((navItem) => {
+            navItem.classList.remove("active");
+          });
 
-          // Add active class to clicked link
+          // Add active class to clicked nav item
           this.classList.add("active");
 
-          // Show corresponding tab
+          // Hide all tab panes
+          tabPanes.forEach((pane) => {
+            pane.classList.remove("active");
+          });
+
+          // Show the corresponding tab pane
           const tabId = this.getAttribute("data-tab");
           document.getElementById(tabId).classList.add("active");
         });
       });
-
-      // Order Tabs
-      const orderTabs = document.querySelectorAll(".order-tab");
-      const orderContents = document.querySelectorAll(".order-content");
-
-      orderTabs.forEach((tab) => {
-        tab.addEventListener("click", function () {
-          // Remove active class from all tabs
-          orderTabs.forEach((tab) => tab.classList.remove("active"));
-
-          // Add active class to clicked tab
-          this.classList.add("active");
-
-          // Show corresponding content
-          const tabId = this.getAttribute("data-order-tab");
-
-          if (tabId === "current") {
-            document.getElementById("current-orders").style.display = "block";
-            document.getElementById("past-orders").style.display = "none";
-          } else {
-            document.getElementById("current-orders").style.display = "none";
-            document.getElementById("past-orders").style.display = "block";
-          }
-        });
-      });
-
-      // Wishlist Actions
-      const addToCartButtons = document.querySelectorAll(".add-to-cart-btn");
-      const removeButtons = document.querySelectorAll(".remove-btn");
-
-      addToCartButtons.forEach((button) => {
-        button.addEventListener("click", function () {
-          const item = this.closest(".wishlist-item");
-          const itemName = item.querySelector(".wishlist-title").textContent;
-          alert(`${itemName} added to cart!`);
-
-          // Update cart count (for demo purposes)
-          const cartCount = document.querySelector(".cart-count");
-          cartCount.textContent = parseInt(cartCount.textContent) + 1;
-        });
-      });
-
-      removeButtons.forEach((button) => {
-        button.addEventListener("click", function () {
-          const item = this.closest(".wishlist-item");
-          const itemName = item.querySelector(".wishlist-title").textContent;
-
-          if (confirm(`Remove ${itemName} from wishlist?`)) {
-            // Add a fade-out animation
-            item.style.opacity = "0";
-            item.style.transform = "scale(0.8)";
-            item.style.transition = "all 0.3s ease";
-
-            // Remove the item after animation completes
-            setTimeout(() => {
-              item.remove();
-            }, 300);
-          }
-        });
-      });
-
-      // Message Item Click
-      const messageItems = document.querySelectorAll(".message-item");
-
-      messageItems.forEach((item) => {
-        item.addEventListener("click", function () {
-          // In a real application, this would open the full message
-          const subject = this.querySelector(".message-subject").textContent;
-          alert(`Opening message: ${subject}`);
-
-          // Mark as read
-          this.classList.remove("unread");
-
-          // Update unread count
-          updateUnreadCount();
-        });
-      });
-
-      function updateUnreadCount() {
-        const unreadMessages = document.querySelectorAll(
-          ".message-item.unread"
-        );
-        const badge = document.querySelector(
-          '.profile-nav a[data-tab="inbox"] .badge'
-        );
-
-        if (unreadMessages.length > 0) {
-          badge.textContent = unreadMessages.length;
-          badge.style.display = "inline-block";
-        } else {
-          badge.style.display = "none";
-        }
-
-        // Update overview stat
-        document.querySelector(".stat-value").textContent =
-          unreadMessages.length;
-      }
     </script>
   </body>
 </html>
