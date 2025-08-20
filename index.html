@@ -31,9 +31,15 @@
       <p class="logo"><a href="index.html">Cloudy</a></p>
       <div class="icon">
         <div class="search-container">
-          <a href="#" class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+          <a href="#" class="search-icon"
+            ><i class="fa-solid fa-magnifying-glass"></i
+          ></a>
           <div class="search-input-container">
-            <input type="text" id="search-input" placeholder="Search products..." />
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search products..."
+            />
           </div>
         </div>
         <a href="profile.html"><i class="fa-regular fa-user"></i></a>
@@ -93,22 +99,25 @@
       <h1>Categories</h1>
 
       <div class="category-container">
-        <div class="category">
-          <img src="/Image/4.jpg" alt="" />
-          <button>Classy Wear ></button>
-        </div>
-        <div class="category">
-          <img src="/Image/6.webp" alt="" />
-          <button>Casual Wear ></button>
-        </div>
-        <div class="category">
-          <img src="/Image/5.webp" alt="" />
-          <button>Sport Wear ></button>
-        </div>
-        <div class="category">
-          <img src="/Image/bby.jpg" alt="" />
-          <button>Kids Clothes ></button>
-        </div>
+        <a href="page.html" class="category">
+          <img src="/Image/4.jpg" alt="Classy Wear" />
+          <button type="button">Classy Wear ></button>
+        </a>
+
+        <a href="page.html" class="category">
+          <img src="/Image/6.webp" alt="Casual Wear" />
+          <button type="button">Casual Wear ></button>
+        </a>
+
+        <a href="page.html" class="category">
+          <img src="/Image/redjacket.jpg" alt="Sport Wear" />
+          <button type="button">Leather Wear ></button>
+        </a>
+
+        <a href="page.html" class="category">
+          <img src="/Image/bby.jpg" alt="Kids Clothes" />
+          <button type="button">Kids Clothes ></button>
+        </a>
       </div>
     </section>
 
@@ -213,72 +222,71 @@
       </div>
     </footer>
 
-<script>
-  const banner = document.querySelector(".banner");
-  const dots = document.querySelectorAll(".dot");
-  const images = [
-    "/Image/1.jpg",
-    "/Image/4.jpg",
-    "/Image/5.webp"
-  ];
-  let index = 0;
+    <script>
+      const banner = document.querySelector(".banner");
+      const dots = document.querySelectorAll(".dot");
+      const images = ["/Image/1.jpg", "/Image/4.jpg", "/Image/5.webp"];
+      let index = 0;
 
-  function showSlide(i) {
-    banner.style.backgroundImage = `
+      function showSlide(i) {
+        banner.style.backgroundImage = `
       linear-gradient(rgba(0, 0, 0, 0.541), rgba(0, 0, 0, 0.616)), 
       url(${images[i]})
     `;
 
-    dots.forEach(dot => dot.classList.remove("active"));
-    dots[i].classList.add("active");
-  }
+        dots.forEach((dot) => dot.classList.remove("active"));
+        dots[i].classList.add("active");
+      }
 
-  setInterval(() => {
-    index = (index + 1) % images.length;
-    showSlide(index);
-  }, 4000);
+      setInterval(() => {
+        index = (index + 1) % images.length;
+        showSlide(index);
+      }, 4000);
 
-  // Search functionality
-  const searchIcon = document.querySelector('.search-icon');
-  const searchInputContainer = document.querySelector('.search-input-container');
-  const searchInput = document.getElementById('search-input');
-  const searchClose = document.getElementById('search-close');
+      // Search functionality
+      const searchIcon = document.querySelector(".search-icon");
+      const searchInputContainer = document.querySelector(
+        ".search-input-container"
+      );
+      const searchInput = document.getElementById("search-input");
+      const searchClose = document.getElementById("search-close");
 
-  searchIcon.addEventListener('click', function(e) {
-    e.preventDefault();
-    searchInputContainer.classList.toggle('active');
-    if (searchInputContainer.classList.contains('active')) {
-      setTimeout(() => {
-        searchInput.focus();
-      }, 300);
-    }
-  });
+      searchIcon.addEventListener("click", function (e) {
+        e.preventDefault();
+        searchInputContainer.classList.toggle("active");
+        if (searchInputContainer.classList.contains("active")) {
+          setTimeout(() => {
+            searchInput.focus();
+          }, 300);
+        }
+      });
 
-  searchInput.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
-      performSearch();
-    }
-  });
+      searchInput.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+          performSearch();
+        }
+      });
 
-  // Close search when clicking outside
-  document.addEventListener('click', function(e) {
-    if (!searchIcon.contains(e.target) && 
-        !searchInputContainer.contains(e.target)) {
-      searchInputContainer.classList.remove('active');
-    }
-  });
+      // Close search when clicking outside
+      document.addEventListener("click", function (e) {
+        if (
+          !searchIcon.contains(e.target) &&
+          !searchInputContainer.contains(e.target)
+        ) {
+          searchInputContainer.classList.remove("active");
+        }
+      });
 
-  function performSearch() {
-    const query = searchInput.value.trim();
-    if (query) {
-      // Here you would implement your search functionality
-      alert(`Searching for: ${query}`);
-      // You can redirect to a search results page
-      // window.location.href = `search-results.html?q=${encodeURIComponent(query)}`;
-      searchInput.value = '';
-    }
-  }
-</script>
-
+      function performSearch() {
+        const query = searchInput.value.trim();
+        if (query) {
+          // Here you would implement your search functionality
+          alert(`Searching for: ${query}`);
+          // You can redirect to a search results page
+          // window.location.href = `search-results.html?q=${encodeURIComponent(query)}`;
+          searchInput.value = "";
+        }
+      }
+    </script>
   </body>
 </html>
